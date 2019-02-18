@@ -1,7 +1,19 @@
 # openData_eniwa
 
-Blackout Karte is analysing the causes of blackouts in networks. The team focused on a few indicators, like earthquakes and flooding.
+Wir haben uns bei der Erstellung der Blackoutkarte vorerst auf das Medium Elektro beschränkt, wobei der Ansatz grundsätzlich auf andere Medien übertragen werden kann und auch für andere Grundlagedaten angewendet werden kann. Herausforderung war und wird sein passende Grundlagedaten für die Analysen zu finden.
 
-First Update: Was Blackouts in Netze verursacht könnte. Wir haben uns auf Erdbeben und Hochwasser beschränkt, und angefangen Daten zu suchen dazu. Mann kann die Daten bestellen über online Shop, die wären aber erst am Dienstag verfügbar. Wir haben darum etwas einfaches genommen, und beschäftigen uns um einen Prototyp wo mann die potenzielle Gefährden und Hotspots zu identifizieren sieht.
+Als erstes haben wir verschiedene Gefahren definiert
 
-Resultat: ![Blackout Karte](Dokumentation/Powerpoint/Presentation_Sketch.png)
+![Gefahren](https://gitlab.com/maegman/opendata_eniwa/raw/master/Dokumentation/1_Blackout%20Map.png)
+
+Als nächstens haben wir die unterschiedlichen Karten vereinheitlicht und normert, damit sie im nächsten Schritt miteinander verrechnet werden können. So wurden die unterschiedlichen Farben in hohes Risiken mit dem Wert 200, mittleres Risiko 100 und geringes Risiko 50 konvertiert. Die normierten Risiken wurden nun zusammen addiert. Die Risiken können beim addieren noch unterschiedlich gewichtet werden. In unserem Beispiel haben wir die beiden verwendeten Risiken gleich gewichtet.
+
+![Risiko](https://gitlab.com/maegman/opendata_eniwa/raw/master/Dokumentation/2_Blackout%20Map.png)
+
+Die bestehenden Leitungen inkl. Einteilung der Wichtigkeit der Leitungen lag als CSV vor und wurde mittels SpatialLite in QGIS hinzugefügt. Die gewichtete Risikokarte wurde mit den Leitungen multipliziert, wodurch die neuralgischen Punkte aufgrund Risikowahrscheinlichkeit und Relevanz der Anlagen/Leitugen ermittelt werden konnten
+
+![Risiko](https://gitlab.com/maegman/opendata_eniwa/raw/master/Dokumentation/3_Blackout%20Map.png)
+
+Die gewichtete Risikokarte wurde weiter in QGIS als 3D-Map visualisiert und mit den Leitungen überlagert.
+
+![Blackout Karte](https://gitlab.com/maegman/opendata_eniwa/raw/master/Dokumentation/4_Blackout%20Map.png)
